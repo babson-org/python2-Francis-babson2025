@@ -5,8 +5,7 @@ from classes.week00.second_class.utils import clear_screen
 Write down the steps a program would need to make a cup of tea. Then implement a Python 
 function make_tea() that prints each step.
 '''
-# enter your code here
-steps =['step1', 'step2', 'step3']
+steps=['step1','step2','step3']
 def make_tea(myList):
     myList[2] = "step5"
     for item in myList:
@@ -14,6 +13,10 @@ def make_tea(myList):
     
 
 make_tea(steps)
+print(steps)
+
+# enter your code here
+
 
 pause=input('pause')
 clear_screen()
@@ -29,6 +32,7 @@ for i in range(3):
     next = nums[-1] + 2 + i * 2
     print(next)
 
+
 pause=input('pause')
 clear_screen()
 '''
@@ -38,11 +42,12 @@ Write a program that asks the user for their first and last name, then prints a 
 "Hello, <first name> <last name>!"
 '''
 # enter your code here
-fname = input('please enter your first name: ')
+fname = input('please enter yur first name: ')
 lname = input('please enter your last name: ')
 fname = fname.capitalize()
 lname = lname.capitalize()
-print(f"Hello, {fname} {lname}")
+print(f'Hello, {fname} {lname}')
+
 
 pause=input('pause')
 clear_screen()
@@ -69,18 +74,18 @@ Ask the user to input two numbers. Calculate and print their sum, difference, pr
 and division (both / and //).
 '''
 # enter your code here
-txt = 'please enter an intiger: '
+txt = 'please enter an integer: '
 while True:
     try:
-        x= int(input(txt))
+        x = int(input(txt))
         break
     except ValueError:
         txt = 'follow directions, enter a number: '
 
-txt = 'please enter an intiger: '
+txt = 'please enter an integer: '
 while True:
     try:
-        y= int(input(txt))
+        y = int(input(txt))
         break
     except ValueError:
         txt = 'follow directions, enter a number: '
@@ -89,9 +94,9 @@ total = x + y
 diff = x - y
 prod = x * y
 div = x / y
-fir = x // y
-print(total, diff, prod, div, fir)
+flr = x // y
 
+print(total, prod, diff, div, flr)
 pause=input('pause')
 clear_screen()
 '''
@@ -100,13 +105,14 @@ clear_screen()
 Ask the user to input a sentence. Print it in uppercase, lowercase, with the first letter 
 capitalized, and split it into words.
 '''
-
-# enter your code here
-txt = input('please enter some text: ')
+txt = input('please entr some text:')
 print(txt.upper())
 print(txt.lower())
 print(txt.capitalize())
 print(txt.split())
+
+# enter your code here
+
 
 pause=input('pause')
 clear_screen()
@@ -118,9 +124,13 @@ Calculate the result of the following without parentheses and then with parenthe
 '''
 # enter your code here
 print(10 + 2 * 5 / 2 - 3 ** 2)
-x = (10 + ((2 * 5) / 2) - (3 ** 2))
+
+x = (10 + (2 * (5 / 2)) - (3 ** 2))
+
 print(x)
 
+x = 2**3**2
+print(x)
 pause=input('pause')
 clear_screen()
 '''
@@ -130,10 +140,9 @@ Create a list of your three favorite foods. Replace the second item with a new o
 then print the list.
 '''
 # enter your code here
-myList = ['ice cream', 'blueberries', 'cake']
+myList =['ice cream', 'blueberries', 'cake']
 myList[1] = 'candy'
 print(myList)
-
 pause=input('pause')
 clear_screen()
 '''

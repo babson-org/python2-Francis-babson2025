@@ -2,6 +2,7 @@
 # Python
 # -------------------------
 __pycache__/
+*.pyc
 *.pyo
 *.pyd
 *.so
@@ -34,3 +35,5 @@ venv/
 Thumbs.db
 
 !*.pdf
+tempCodeRunnerFile.*
+

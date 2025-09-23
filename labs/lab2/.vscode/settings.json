@@ -1,0 +1,12 @@
+
+{
+    "python.analysis.extraPaths": [
+        "./student_code",
+        "./default_code"
+    ],
+
+    "python.analysis.diagnosticSeverityOverrides": {
+    "reportMissingImports": "none"
+}
+
+}

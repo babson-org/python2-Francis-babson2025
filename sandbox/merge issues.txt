@@ -1,0 +1,3 @@
+U       classes/week02/monday/exercise/s1-12.ipynb
+U       classes/week02/wednesday/exercises/s13-22.ipynb
+U       classes/week04/monday/exercise/q23-26.ipynbS
