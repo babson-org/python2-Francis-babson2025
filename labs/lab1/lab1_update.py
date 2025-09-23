@@ -39,11 +39,20 @@ def draw_diamond():
 
     # TODO: Prompt user for an odd number
     height = int(input("Enter an odd number for the diamond height: "))
-
+    if height % 2 == 0 or height <= 0:
+        print("Please enter a positive odd number.")
+        return
+    mid = height // 2
     # TODO: Draw the top half of the diamond
-
+    for i in range(mid + 1):
+        spaces = ' ' * (mid - i)
+        stars = '*' * (2 * i + 1)
+        print(spaces + stars)
     # TODO: Draw the bottom half of the diamond
-
+    for i in range(mid - 1, -1, -1):
+        spaces = ' ' * (mid - i)
+        stars = '*' * (2 * i + 1)
+        print(spaces + stars)
 # Uncomment to test Part 1
 # draw_diamond()
 
@@ -67,15 +76,18 @@ def text_analysis():
 
     # TODO: Count letters
     letters = 0
+    letters = sum(1 for char in text if char. isalpha())
 
     # TODO: Count words
+    words = len(text.split())
 
     # TODO: Count sentences
+    sentences = sum(text.count(punct) for punct in ['.', '?', '!'])
 
     # TODO: Print the results
     print(f"Letters: {letters}")
-    print(f"Words: {0}")        # replace 0
-    print(f"Sentences: {0}")    # replace 0
+    print(f"Words: {words}")        # replace 0
+    print(f"Sentences: {sentences}")    # replace 0
 
 # Uncomment to test Part 2
 # text_analysis()
@@ -102,8 +114,16 @@ def caesar_cipher():
     choice = input("Type 'e' to encrypt or 'd' to decrypt: ").lower()
 
     # TODO: Implement encryption and decryption logic
+    if choice == 'd' :
+        shift = -shift
     result = ""
-
+    for char in text:
+            if char.isalpha():
+                base = ord('A') if char.isupper() else ord('a')
+                shifted = (ord(char) - base + shift) % 26 + base
+                result +=  chr(shifted)
+            else:
+                result += char
     # TODO: Print the final result
     print("Result:", result)
 
