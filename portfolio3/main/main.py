@@ -78,7 +78,7 @@ def main():
                                     '''
                                     get buy input, wait for return to break out of loop
                                     '''   
-                                    buy_input(active_client) 
+                                    buy_input(active_client,clients) 
                                     break                                
                                 elif choice == 2:
                                     '''

@@ -64,7 +64,7 @@
   // Add PYTHONPATH here ??
   "containerEnv": {
     "PIP_DISABLE_PIP_VERSION_CHECK": "1",
-    "PYTHONPATH": "/workspaces/python_class"
+    "PYTHONPATH": "/workspaces/${localWorkspaceFolderBasename}"
   }
 }
 
