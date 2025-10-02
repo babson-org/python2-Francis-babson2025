@@ -1,7 +1,6 @@
 {
   "name": "Python Dev Environment",
-  "image": "mcr.microsoft.com/devcontainers/python:3.10-bullseye",
-
+  "image": "mcr.microsoft.com/devcontainers/python:3.10",
   "features": {
     "github-cli": "latest"
   },
@@ -16,17 +15,18 @@
         "github.codespaces",
         "github.vscode-pull-request-github",
         "github.github-vscode-theme",
+        "esbenp.prettier-vscode",
         "ms-python.python",
         "ms-python.debugpy",
         "ericsia.pythonsnippets3",
         "ms-vscode.remote-repositories",
         "emmanuelbeziat.vscode-great-icons",
+        "formulahendry.code-runner",
         "mathematic.vscode-pdf",
         "ritwickdey.LiveServer",
         "ms-toolsai.jupyter",
         "ms-python.vscode-pylance",
         "ms-toolsai.jupyter-keymap",
-        "yutengjing.open-in-external-app",
         "ms-toolsai.jupyter-renderers"
       ],
       "settings": {
@@ -38,18 +38,19 @@
         "inlineChat.accessibleDiffView": "off",
         "terminal.integrated.initialHint": false,
 
+        // Terminal setup
         "terminal.integrated.profiles.linux": {
-          "bash": { "path": "/bin/bash" }
+          "bash": {
+            "path": "/bin/bash"
+          }
         },
         "terminal.integrated.defaultProfile.linux": "bash",
 
+        // Python environment
         "python.terminal.activateEnvironment": true,
         "python.defaultInterpreterPath": "${workspaceFolder}/venv/bin/python",
-        "python.analysis.extraPaths": ["${workspaceFolder}"],
 
-        "editor.formatOnSave": true,
-        "python.formatting.provider": "black",
-        "jupyter.askForKernelRestart": false,
+        // Jupyter behavior
         "jupyter.enableAutoStart": false
       }
     }
@@ -58,9 +59,12 @@
   "remoteUser": "vscode",
 
   "postCreateCommand": "pip install nbstripout && nbstripout --install --attributes .gitattributes && bash .devcontainer/setup.sh",
+  "postStartCommand": "bash .devcontainer/setup.sh",
 
+  // Add PYTHONPATH here ??
   "containerEnv": {
-    "PIP_DISABLE_PIP_VERSION_CHECK": "1"
+    "PIP_DISABLE_PIP_VERSION_CHECK": "1",
+    "PYTHONPATH": "/workspaces/${localWorkspaceFolderBasename}"
   }
 }
 

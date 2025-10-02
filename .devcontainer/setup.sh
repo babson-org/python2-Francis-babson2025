@@ -38,10 +38,11 @@ git config --global alias.upstream-save '!f() { \
   done; \
   if [ -n "$(git diff --cached --name-only)" ]; then \
     git commit -m "Merge upstream/main, preserving student copies"; \
+    echo "If you still see merge conflicts, rerun: git upstream-save until you see \"Already up to date.\""; \
   fi; \
 }; f'
 
 echo "? Setup complete!"
-echo "?? First time only, run: git upstream"
+echo "?? First time only, run: git upstream-once"
 echo "?? Every other time, run: git upstream-save"
 
