@@ -12,7 +12,9 @@ def get_tickers():
                 "full_name": row["Full Corporate Name"]
             }
 
-    pprint(tickers)
-    print(tickers['TSLA'])
-    print(tickers['TSLA']['short_name'])
+    #pprint(tickers)
+    #print(tickers['TSLA'])
+    #print(tickers['TSLA']['short_name'])
     return tickers
+
+#get_tickers()

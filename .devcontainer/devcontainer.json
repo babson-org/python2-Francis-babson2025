@@ -1,73 +1,51 @@
 {
-  "name": "Python Dev Environment",
-  "image": "mcr.microsoft.com/devcontainers/python:3.10",
+  "name": "Python Dev Environment (Frozen)",
+  "image": "mcr.microsoft.com/devcontainers/python:3.10-bullseye",
   "features": {
     "github-cli": "latest"
   },
-
   "customizations": {
     "vscode": {
       "extensions": [
-        "bierner.emojisense",
-        "michaelCurrin.auto-commit-msg",
-        "ms-vsliveshare.vsliveshare",
+        "ms-python.python",
+        "ms-toolsai.jupyter",
+        "ms-python.vscode-pylance",
         "ms-python.black-formatter",
+        "ms-vsliveshare.vsliveshare",
         "github.codespaces",
         "github.vscode-pull-request-github",
         "github.github-vscode-theme",
-        "esbenp.prettier-vscode",
-        "ms-python.python",
-        "ms-python.debugpy",
-        "ericsia.pythonsnippets3",
-        "ms-vscode.remote-repositories",
+        "ms-toolsai.jupyter-keymap",
+        "ms-toolsai.jupyter-renderers",
+        "michaelCurrin.auto-commit-msg",
+        "bierner.emojisense",
         "emmanuelbeziat.vscode-great-icons",
-        "formulahendry.code-runner",
         "mathematic.vscode-pdf",
         "ritwickdey.LiveServer",
-        "ms-toolsai.jupyter",
-        "ms-python.vscode-pylance",
-        "ms-toolsai.jupyter-keymap",
-        "ms-toolsai.jupyter-renderers"
+        "yutengjing.open-in-external-app"
       ],
       "settings": {
-        "github.copilot.enable": {"*": false},
-        "github.copilot.inlineSuggest.enable": false,
-        "github.copilot.editor.enableAutoCompletions": false,
-        "chat.commandCenter.enabled": false,
-        "chat.agent.enabled": false,
-        "inlineChat.accessibleDiffView": "off",
-        "terminal.integrated.initialHint": false,
-
-        // Terminal setup
-        "terminal.integrated.profiles.linux": {
-          "bash": {
-            "path": "/bin/bash"
-          }
-        },
-        "terminal.integrated.defaultProfile.linux": "bash",
-
-        // Python environment
-        "python.terminal.activateEnvironment": true,
+        "extensions.autoUpdate": false,
+        "extensions.autoCheckUpdates": false,
+        "workbench.enableExperiments": false,
+        "telemetry.enableTelemetry": false,
+        "telemetry.telemetryLevel": "off",
+        "github.telemetry.enabled": false,
         "python.defaultInterpreterPath": "${workspaceFolder}/venv/bin/python",
-
-        // Jupyter behavior
-        "jupyter.enableAutoStart": false
+        "python.terminal.activateEnvironment": true,
+        "python.formatting.provider": "black",
+        "editor.formatOnSave": true,
+        "jupyter.askForKernelRestart": false,
+        "jupyter.enableAutoStart": true,
+        "terminal.integrated.defaultProfile.linux": "bash"
       }
     }
   },
-
   "remoteUser": "vscode",
-
-  "postCreateCommand": "pip install nbstripout && nbstripout --install --attributes .gitattributes && bash .devcontainer/setup.sh",
-  "postStartCommand": "bash .devcontainer/setup.sh",
-
-  // Add PYTHONPATH here ??
+  "postCreateCommand": "python3 -m venv venv && . venv/bin/activate && pip install --upgrade pip && pip install -r requirements.txt && python -m ipykernel install --user --name=venv --display-name 'Python (venv)' && nbstripout --install --attributes .gitattributes && bash .devcontainer/setup.sh",
   "containerEnv": {
     "PIP_DISABLE_PIP_VERSION_CHECK": "1",
-    "PYTHONPATH": "/workspaces/python_class"
-  }
+    "PYTHONUNBUFFERED": "1"
+  },
+  "overrideCommand": true
 }
-
-
-
-

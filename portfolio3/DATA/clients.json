@@ -6,10 +6,17 @@
         "positions": [
             {
                 "id": 1,
-                "shares": 100000.04,
+                "shares": 90000.04,
                 "symbol": "$$$$",
                 "name": "Cash",
                 "avg_cost": 100000.04
+            },
+            {
+                "id": 1,
+                "shares": 200,
+                "symbol": "AMZN",
+                "name": "Amazon.com",
+                "avg_cost": 50.0
             }
         ],
         "transactions": [
@@ -17,10 +24,28 @@
                 "id": 1,
                 "timestamp": "20250918-175822",
                 "type": "CONTRIBUTION",
-                "shares": 100000.04,
+                "shares": 100000.0,
                 "symbol": "$$$$",
                 "name": "Cash",
                 "trn_price": 1.0
+            },
+            {
+                "id": 1,
+                "timestamp": "20250924-193637",
+                "type": "BUY",
+                "shares": 100,
+                "symbol": "AMZN",
+                "name": "Amazon.com",
+                "trn_price": 45.0
+            },
+            {
+                "id": 1,
+                "timestamp": "20250924-193727",
+                "type": "BUY",
+                "shares": 100,
+                "symbol": "AMZN",
+                "name": "Amazon.com",
+                "trn_price": 55.0
             }
         ]
     },
@@ -114,6 +139,56 @@
                 "symbol": "$$$$",
                 "name": "Cash",
                 "trn_price": 1.0
+            }
+        ]
+    },
+    {
+        "id": 5,
+        "fname": "Zach",
+        "lname": "Bean",
+        "positions": [
+            {
+                "id": 5,
+                "shares": 23000.0,
+                "symbol": "$$$$",
+                "name": "Cash",
+                "avg_cost": 1.0
+            },
+            {
+                "id": 5,
+                "shares": 20,
+                "symbol": "AMZN",
+                "name": "Amazon.com",
+                "avg_cost": 100.0
+            }
+        ],
+        "transactions": [
+            {
+                "id": 5,
+                "timestamp": "20250924-193850",
+                "type": "CONTRIBUTION",
+                "shares": 25000.0,
+                "symbol": "$$$$",
+                "name": "Cash",
+                "trn_price": 1.0
+            },
+            {
+                "id": 5,
+                "timestamp": "20250924-193939",
+                "type": "BUY",
+                "shares": 10,
+                "symbol": "AMZN",
+                "name": "Amazon.com",
+                "trn_price": 50.0
+            },
+            {
+                "id": 5,
+                "timestamp": "20250924-194028",
+                "type": "BUY",
+                "shares": 10,
+                "symbol": "AMZN",
+                "name": "Amazon.com",
+                "trn_price": 150.0
             }
         ]
     }

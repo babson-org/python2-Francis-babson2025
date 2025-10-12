@@ -1,0 +1,69 @@
+{
+  "name": "Python Dev Environment",
+  "image": "mcr.microsoft.com/devcontainers/python:3.10-bullseye",
+
+  "features": {
+    "github-cli": "latest"
+  },
+
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "bierner.emojisense",
+        "michaelCurrin.auto-commit-msg",
+        "ms-vsliveshare.vsliveshare",
+        "ms-python.black-formatter",
+        "github.codespaces",
+        "github.vscode-pull-request-github",
+        "github.github-vscode-theme",
+        "ms-python.python",
+        "ms-python.debugpy",
+        "ericsia.pythonsnippets3",
+        "ms-vscode.remote-repositories",
+        "emmanuelbeziat.vscode-great-icons",
+        "mathematic.vscode-pdf",
+        "ritwickdey.LiveServer",
+        "ms-toolsai.jupyter",
+        "ms-python.vscode-pylance",
+        "ms-toolsai.jupyter-keymap",
+        "yutengjing.open-in-external-app",
+        "ms-toolsai.jupyter-renderers"
+      ],
+      "settings": {
+        "github.copilot.enable": {"*": false},
+        "github.copilot.inlineSuggest.enable": false,
+        "github.copilot.editor.enableAutoCompletions": false,
+        "chat.commandCenter.enabled": false,
+        "chat.agent.enabled": false,
+        "inlineChat.accessibleDiffView": "off",
+        "terminal.integrated.initialHint": false,
+
+        "terminal.integrated.profiles.linux": {
+          "bash": { "path": "/bin/bash" }
+        },
+        "terminal.integrated.defaultProfile.linux": "bash",
+
+        "python.terminal.activateEnvironment": true,
+        "python.defaultInterpreterPath": "${workspaceFolder}/venv/bin/python",
+        "python.analysis.extraPaths": ["${workspaceFolder}"],
+
+        "editor.formatOnSave": true,
+        "python.formatting.provider": "black",
+        "jupyter.askForKernelRestart": false,
+        "jupyter.enableAutoStart": false
+      }
+    }
+  },
+
+  "remoteUser": "vscode",
+
+  "postCreateCommand": "pip install nbstripout && nbstripout --install --attributes .gitattributes && bash .devcontainer/setup.sh",
+
+  "containerEnv": {
+    "PIP_DISABLE_PIP_VERSION_CHECK": "1"
+  }
+}
+
+
+
+
