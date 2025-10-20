@@ -26,22 +26,22 @@ git config --global pull.rebase false
 # Alias 1: First-time only, stitches histories together
 git config --global alias.upstream-once "!git pull upstream main --allow-unrelated-histories --no-edit"
 
-# Alias 2: Ongoing use, keeps teacher’s copy in original filename
-# and saves student’s conflicted version as <filename>.studentcopy
+# Alias 2: Ongoing use, keeps teacherï¿½s copy in original filename
+# and saves studentï¿½s conflicted version as <filename>.studentcopy
 git config --global alias.upstream-save '!f() { \
   git fetch upstream main && \
-  git merge --no-edit upstream/main || true; \
-  for f in $(git diff --name-only --diff-filter=U); do \
-    git show :2:$f > "${f}.studentcopy"; \
-    git checkout --theirs -- "$f"; \
-    git add "$f" "${f}.studentcopy"; \
-  done; \
-  if [ -n "$(git diff --cached --name-only)" ]; then \
-    git commit -m "Merge upstream/main, preserving student copies"; \
-    echo "If you still see merge conflicts, rerun: git upstream-save until you see \"Already up to date.\""; \
-  fi; \
-}; f'
-
+    git merge --no-edit upstream/main || true; \
+      for f in $(git diff --name-only --diff-filter=U); do \
+          git show :2:$f > "${f}.studentcopy"; \
+              git checkout --theirs -- "$f"; \
+                  git add "$f" "${f}.studentcopy"; \
+                    done; \
+                      if [ -n "$(git diff --cached --name-only)" ]; then \
+                          git commit -m "Merge upstream/main, preserving student copies"; \
+                              echo "If you still see merge conflicts, rerun: git upstream-save until you see \"Already up to date.\""; \
+                                fi; \
+                                }; f'
+                                
 echo "? Setup complete!"
 echo "?? First time only, run: git upstream-once"
 echo "?? Every other time, run: git upstream-save"

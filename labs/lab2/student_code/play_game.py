@@ -24,8 +24,12 @@ Imported Functions:
     - find_move(board, playerTurn): Uses minimax to find the best AI move (hard mode).
     - clear_screen(): Clears the terminal for a cleaner display.
 """
+import sys
+import time
+from utils import clear_screen
 import importlib.util
 from pathlib import Path
+
 
 def import_module(name):
     """
@@ -41,12 +45,15 @@ def import_module(name):
     elif default_pyc.exists():
         spec = importlib.util.spec_from_file_location(name, default_pyc)
     else:
-        raise ImportError(f"Module '{name}' not found in student_code or default_code.")
+        raise ImportError(
+            f"Module '{name}' not found in student_code or default_code.")
 
     module = importlib.util.module_from_spec(spec)
+
+    import sys
+    sys.modules[name] = module
     spec.loader.exec_module(module)
     return module
-
 
 
 print_board = import_module("display_board").print_board
@@ -58,9 +65,6 @@ find_move = import_module("find_move").find_move
 mini_max = import_module("find_move").mini_max
 clear_screen = import_module("utils").clear_screen
 
-from utils import clear_screen
-import time
-import sys
 
 def play_game():
     """
@@ -82,7 +86,7 @@ def play_game():
     player_win = 30
 
     # Set difficulty: False = easy (random AI), True = hard (minimax AI).
-    play_hard = True  # TODO: Change to False once ai_move.py is ready.
+    play_hard = False  # TODO: Change to False once ai_move.py is ready.
 
     # Clear the screen to start fresh.
     clear_screen()
@@ -90,7 +94,7 @@ def play_game():
     # Get player name and assign AI name.
     ai_name = 'Big Mean Machine'
     player_name = input('Please enter your name: ')
-    
+
     sys.stdout.flush()
 
     # Ask who plays first: 1 = player, 2 = computer.
