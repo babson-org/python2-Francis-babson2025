@@ -1,15 +1,15 @@
 # %%
-print('Hello, World! dd  ')
+print("Hello, World!     ")
 
 # %%
-name = input('Please enter your name: ')
-print('Hello, ' + name + '!')
+name = input("Please enter your name: ")
+print("Hello, " + name + "!")
 
-#new comment
+# new comment
 
 
-#another comment
-'''
+# another comment
+"""
 The print() function will print out strings and numbers.  However you can't 
 concatenate a number with a string.  Use the str() function to convert a number 
 to a string.
@@ -48,4 +48,4 @@ if now try: age = age + 1 we get an error becauseage is a numeral (text) and you
 
 Figure out on your own how to convert an numeral to an integer or a float.  Whay happens if you try to convert
 a string to a number.  e.g. txt = 'Hello'  -> try to convert txt to an integer or float
-'''
+"""

@@ -1,4 +1,4 @@
-#!/bin/bashn
+#!/bin/bash
 set -e
 
 # Create virtual environment if it doesn't exist
@@ -26,8 +26,8 @@ git config --global pull.rebase false
 # Alias 1: First-time only, stitches histories together
 git config --global alias.upstream-once "!git pull upstream main --allow-unrelated-histories --no-edit"
 
-# Alias 2: Ongoing use, keeps teacherï¿½s copy in original filename
-# and saves studentï¿½s conflicted version as <filename>.studentcopy
+# Alias 2: Ongoing use, keeps teacher’s copy in original filename
+# and saves student’s conflicted version as <filename>.studentcopy
 git config --global alias.upstream-save '!f() { \
   git fetch upstream main && \
   git merge --no-edit upstream/main || true; \
@@ -38,11 +38,9 @@ git config --global alias.upstream-save '!f() { \
   done; \
   if [ -n "$(git diff --cached --name-only)" ]; then \
     git commit -m "Merge upstream/main, preserving student copies"; \
-    echo "Your copy was saved as *.studentcopy. Edit as needed and rename to restore."; \
     echo "If you still see merge conflicts, rerun: git upstream-save until you see \"Already up to date.\""; \
   fi; \
 }; f'
-
 
 echo "? Setup complete!"
 echo "?? First time only, run: git upstream-once"
