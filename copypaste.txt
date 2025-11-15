@@ -1,3 +1,0 @@
-Unblock-File D:\PythonClass\fix_execution_policy.ps1
-Unblock-File D:\PythonClass\setup_envirionment.ps1
-Unblock-File D:\PythonClass\sync_class_to_student.ps1

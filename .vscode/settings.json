@@ -42,6 +42,9 @@
   "python.envFile": "${workspaceFolder}/.env",
   "python.formatting.provider": "black",
   "editor.formatOnSave": true,
+  "[python]": {
+      "editor.formatOnSave": false
+   },
 
   
   "notebook.globalToolbar": false,
@@ -86,6 +89,9 @@
   "search.exclude": {
     "**/tempCodeRunnerFile.*": true
   },
+  
+  
+
 
   
   "editor.minimap.showSlider": "mouseover",
